@@ -1,0 +1,21 @@
+pipeline {
+  agent any
+  stages {
+    stage('aage badhe?') {
+      steps {
+        input(message: 'chale?', id: 'kon', ok: 'yes')
+      }
+    }
+    stage('Git checkout') {
+      steps {
+        git(url: 'https://github.com/tswsmith/kss-jenkins.git', branch: 'kss-jenkins', changelog: true, poll: true, credentialsId: 'tswsmith')
+      }
+    }
+    stage('test') {
+      steps {
+        tool(name: 'maven4', type: 'maven')
+        sh 'mvn test'
+      }
+    }
+  }
+}
