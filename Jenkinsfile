@@ -13,8 +13,9 @@ pipeline {
     }
     stage('test') {
       steps {
-        tool(name: 'maven4', type: 'maven')
-        sh 'mvn test'
+         withEnv(["PATH+MAVEN=${tool 'maven4'}/bin"]) {
+          sh "mvn test"
+        }
       }
     }
   }
