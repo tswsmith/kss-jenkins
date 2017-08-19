@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Git se kheech') {
       steps {
-        git(url: 'https://github.com/tswsmith/kss-jenkins.git', branch: 'kss-jenkins', changelog: true)
+        git(url: 'https://github.com/tswsmith/kss-jenkins.git', branch: 'kss-jenkins', changelog: true, poll: true, credentialsId: 'tswsmith')
       }
     }
     stage('test') {
